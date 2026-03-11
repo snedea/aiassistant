@@ -1,0 +1,22 @@
+:80 {
+    handle /api/chat {
+        uri strip_prefix /api
+        reverse_proxy assistant:8000 {
+            transport http {
+                response_header_timeout 10m
+                read_timeout 10m
+            }
+        }
+    }
+
+    handle /api/* {
+        uri strip_prefix /api
+        reverse_proxy assistant:8000
+    }
+
+    handle {
+        root * /srv
+        try_files {path} /index.html
+        file_server
+    }
+}

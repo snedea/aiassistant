@@ -1,0 +1,29 @@
+services:
+  assistant:
+    build: .
+    container_name: aiassistant
+    env_file: .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./backend:/app/backend
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:8000/health')\""]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: aiassistant-frontend
+    ports:
+      - "3080:80"
+    depends_on:
+      assistant:
+        condition: service_healthy
+    restart: unless-stopped
