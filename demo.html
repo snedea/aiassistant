@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Assistant — Demo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gray: {
+              950: '#0a0a0f',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #0a0a0f; }
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-950 text-gray-100">
+
+  <!-- Header -->
+  <header class="border-b border-gray-800 bg-gray-900 px-6 py-4 flex items-center justify-between">
+    <div>
+      <h1 class="text-xl font-semibold">AI Assistant</h1>
+      <p class="text-sm text-gray-400">Dashboard</p>
+    </div>
+    <button class="px-3 py-1.5 text-sm text-gray-400 border border-gray-700 rounded">Logout</button>
+  </header>
+
+  <main class="mx-auto max-w-7xl p-6">
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3">
+
+      <!-- Upcoming Events -->
+      <div class="rounded-lg border border-gray-800 bg-gray-900">
+        <div class="flex items-center justify-between border-b border-gray-800 px-4 py-3">
+          <h2 class="text-sm font-medium text-gray-300">Upcoming Events</h2>
+        </div>
+        <div class="p-4">
+          <ul class="space-y-3">
+            <li class="rounded border border-gray-800 px-3 py-2">
+              <p class="text-sm font-medium text-gray-200">Team Standup</p>
+              <p class="text-xs text-gray-400">Monday, Mar 11th</p>
+              <p class="text-xs text-gray-500">09:00 AM - 09:30 AM</p>
+            </li>
+            <li class="rounded border border-gray-800 px-3 py-2">
+              <p class="text-sm font-medium text-gray-200">Product Review</p>
+              <p class="text-xs text-gray-400">Tuesday, Mar 12th</p>
+              <p class="text-xs text-gray-500">02:00 PM - 03:00 PM</p>
+            </li>
+            <li class="rounded border border-gray-800 px-3 py-2">
+              <p class="text-sm font-medium text-gray-200">Dentist Appointment</p>
+              <p class="text-xs text-gray-400">Wednesday, Mar 13th</p>
+              <p class="text-xs text-gray-500">10:30 AM - 11:00 AM</p>
+            </li>
+            <li class="rounded border border-gray-800 px-3 py-2">
+              <p class="text-sm font-medium text-gray-200">Quarterly Planning</p>
+              <p class="text-xs text-gray-400">Friday, Mar 15th</p>
+              <p class="text-xs text-gray-500">01:00 PM - 04:00 PM</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Recent Emails -->
+      <div class="rounded-lg border border-gray-800 bg-gray-900">
+        <div class="flex items-center justify-between border-b border-gray-800 px-4 py-3">
+          <h2 class="text-sm font-medium text-gray-300">Recent Emails</h2>
+        </div>
+        <div class="p-4">
+          <ul class="space-y-3">
+            <li class="rounded border border-gray-800 px-3 py-2">
+              <div class="flex items-center justify-between gap-2">
+                <p class="truncate text-sm font-medium text-gray-200">Server outage — action required</p>
+                <span class="shrink-0 rounded-full px-2 py-0.5 text-xs font-medium bg-red-900 text-red-300">urgent</span>
+              </div>
+              <p class="text-xs text-gray-500">From: ops-alerts@company.io</p>
+              <p class="mt-1 text-xs text-gray-400">Production database is experiencing high latency. Requires immediate attention from the on-call team.</p>
+            </li>
+            <li class="rounded border border-gray-800 px-3 py-2">
+              <div class="flex items-center justify-between gap-2">
+                <p class="truncate text-sm font-medium text-gray-200">Q1 Budget Approval Needed</p>
+                <span class="shrink-0 rounded-full px-2 py-0.5 text-xs font-medium bg-yellow-900 text-yellow-300">important</span>
+              </div>
+              <p class="text-xs text-gray-500">From: finance@company.io</p>
+              <p class="mt-1 text-xs text-gray-400">Please review and approve the Q1 engineering budget before end of week.</p>
+            </li>
+            <li class="rounded border border-gray-800 px-3 py-2">
+              <div class="flex items-center justify-between gap-2">
+                <p class="truncate text-sm font-medium text-gray-200">Weekly newsletter — March edition</p>
+                <span class="shrink-0 rounded-full px-2 py-0.5 text-xs font-medium bg-gray-800 text-gray-400">fyi</span>
+              </div>
+              <p class="text-xs text-gray-500">From: newsletter@techdigest.com</p>
+              <p class="mt-1 text-xs text-gray-400">Top stories in AI, cloud infrastructure, and developer tools this week.</p>
+            </li>
+            <li class="rounded border border-gray-800 px-3 py-2">
+              <div class="flex items-center justify-between gap-2">
+                <p class="truncate text-sm font-medium text-gray-200">Re: API rate limit increase request</p>
+                <span class="shrink-0 rounded-full px-2 py-0.5 text-xs font-medium bg-yellow-900 text-yellow-300">important</span>
+              </div>
+              <p class="text-xs text-gray-500">From: support@api-provider.com</p>
+              <p class="mt-1 text-xs text-gray-400">Your request for increased rate limits has been approved. New limits take effect Monday.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Recent Notes -->
+      <div class="rounded-lg border border-gray-800 bg-gray-900">
+        <div class="flex items-center justify-between border-b border-gray-800 px-4 py-3">
+          <h2 class="text-sm font-medium text-gray-300">Recent Notes</h2>
+        </div>
+        <div class="p-4">
+          <ul class="space-y-3">
+            <li class="rounded border border-gray-800 px-3 py-2">
+              <div class="flex items-center justify-between gap-2">
+                <p class="truncate text-sm font-medium text-gray-200">Architecture Decision — Auth Service</p>
+                <span class="shrink-0 rounded-full bg-gray-800 px-2 py-0.5 text-xs text-gray-400">Work</span>
+              </div>
+              <p class="mt-1 text-xs text-gray-400 line-clamp-2">Decided to use JWT with refresh tokens. Access token TTL: 15 min. Refresh token stored in httpOnly cookie. No session table needed.</p>
+            </li>
+            <li class="rounded border border-gray-800 px-3 py-2">
+              <div class="flex items-center justify-between gap-2">
+                <p class="truncate text-sm font-medium text-gray-200">Books to Read</p>
+                <span class="shrink-0 rounded-full bg-gray-800 px-2 py-0.5 text-xs text-gray-400">Personal</span>
+              </div>
+              <p class="mt-1 text-xs text-gray-400 line-clamp-2">Designing Data-Intensive Applications, The Pragmatic Programmer, Staff Engineer, An Elegant Puzzle</p>
+            </li>
+            <li class="rounded border border-gray-800 px-3 py-2">
+              <div class="flex items-center justify-between gap-2">
+                <p class="truncate text-sm font-medium text-gray-200">Sprint 14 Retro Notes</p>
+                <span class="shrink-0 rounded-full bg-gray-800 px-2 py-0.5 text-xs text-gray-400">Work</span>
+              </div>
+              <p class="mt-1 text-xs text-gray-400 line-clamp-2">Good: shipped the migration on time. Improve: too many last-minute scope changes. Action: freeze scope 3 days before sprint end.</p>
+            </li>
+            <li class="rounded border border-gray-800 px-3 py-2">
+              <div class="flex items-center justify-between gap-2">
+                <p class="truncate text-sm font-medium text-gray-200">Home Renovation Ideas</p>
+                <span class="shrink-0 rounded-full bg-gray-800 px-2 py-0.5 text-xs text-gray-400">Personal</span>
+              </div>
+              <p class="mt-1 text-xs text-gray-400 line-clamp-2">Kitchen: new countertops (quartz), under-cabinet lighting. Office: standing desk, acoustic panels on north wall.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sources Status -->
+      <div class="rounded-lg border border-gray-800 bg-gray-900">
+        <div class="flex items-center justify-between border-b border-gray-800 px-4 py-3">
+          <h2 class="text-sm font-medium text-gray-300">Sources</h2>
+        </div>
+        <div class="p-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between rounded border border-gray-800 px-3 py-2">
+              <div>
+                <p class="text-sm font-medium text-gray-200">Notes</p>
+                <p class="text-xs text-gray-500">Last synced: 4m ago</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="h-2 w-2 rounded-full bg-green-500"></div>
+                <span class="text-xs text-gray-500">2,541 items</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between rounded border border-gray-800 px-3 py-2">
+              <div>
+                <p class="text-sm font-medium text-gray-200">Calendar</p>
+                <p class="text-xs text-gray-500">Last synced: 2m ago</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="h-2 w-2 rounded-full bg-green-500"></div>
+                <span class="text-xs text-gray-500">12 items</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between rounded border border-gray-800 px-3 py-2">
+              <div>
+                <p class="text-sm font-medium text-gray-200">Email</p>
+                <p class="text-xs text-gray-500">Last synced: 8m ago</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="h-2 w-2 rounded-full bg-green-500"></div>
+                <span class="text-xs text-gray-500">47 items</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Triaged Items -->
+      <div class="rounded-lg border border-gray-800 bg-gray-900">
+        <div class="flex items-center justify-between border-b border-gray-800 px-4 py-3">
+          <h2 class="text-sm font-medium text-gray-300">Triaged Items</h2>
+        </div>
+        <div class="p-4">
+          <ul class="space-y-2">
+            <li class="rounded border border-gray-800 px-3 py-2">
+              <div class="flex items-center justify-between gap-2">
+                <p class="truncate text-sm font-medium text-gray-200">Quarterly Planning</p>
+                <span class="shrink-0 rounded-full px-2 py-0.5 text-xs font-medium bg-yellow-900 text-yellow-300">important</span>
+              </div>
+              <p class="text-xs text-gray-500 capitalize">calendar</p>
+              <p class="mt-1 text-xs text-gray-400">Multi-stakeholder planning session with pre-read required. Prepare roadmap slides.</p>
+            </li>
+            <li class="rounded border border-gray-800 px-3 py-2">
+              <div class="flex items-center justify-between gap-2">
+                <p class="truncate text-sm font-medium text-gray-200">Architecture Decision — Auth Service</p>
+                <span class="shrink-0 rounded-full px-2 py-0.5 text-xs font-medium bg-blue-900 text-blue-300">fyi</span>
+              </div>
+              <p class="text-xs text-gray-500 capitalize">notes</p>
+              <p class="mt-1 text-xs text-gray-400">Design decision log for auth service. Reference material with no immediate action needed.</p>
+            </li>
+            <li class="rounded border border-gray-800 px-3 py-2">
+              <div class="flex items-center justify-between gap-2">
+                <p class="truncate text-sm font-medium text-gray-200">Sprint 14 Retro Notes</p>
+                <span class="shrink-0 rounded-full px-2 py-0.5 text-xs font-medium bg-yellow-900 text-yellow-300">important</span>
+              </div>
+              <p class="text-xs text-gray-500 capitalize">notes</p>
+              <p class="mt-1 text-xs text-gray-400">Contains action items: scope freeze policy needs to be added to team norms doc.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Quick Chat -->
+      <div class="rounded-lg border border-gray-800 bg-gray-900 lg:col-span-2">
+        <div class="flex items-center justify-between border-b border-gray-800 px-4 py-3">
+          <h2 class="text-sm font-medium text-gray-300">Quick Chat</h2>
+        </div>
+        <div class="p-4">
+          <div class="flex gap-2">
+            <input
+              type="text"
+              value="What's on my calendar this week?"
+              readonly
+              class="flex-1 rounded border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-gray-100 placeholder-gray-500 focus:outline-none"
+            />
+            <button class="rounded bg-blue-600 px-4 py-2 text-sm font-medium text-white">Ask</button>
+          </div>
+          <div class="mt-3 rounded border border-gray-800 bg-gray-800/50 p-3 text-sm text-gray-300">
+            You have 4 events this week: Team Standup Monday at 9 AM, Product Review Tuesday at 2 PM, a Dentist Appointment Wednesday at 10:30 AM, and Quarterly Planning on Friday 1–4 PM. The planning session looks like it needs prep — do you want me to pull together any notes or context for it?
+          </div>
+        </div>
+      </div>
+
+      <!-- Memory -->
+      <div class="rounded-lg border border-gray-800 bg-gray-900 lg:col-span-2 xl:col-span-3">
+        <div class="flex items-center justify-between border-b border-gray-800 px-4 py-3">
+          <h2 class="text-sm font-medium text-gray-300">Memory</h2>
+        </div>
+        <div class="p-4">
+          <div class="mb-4">
+            <h3 class="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500">routine</h3>
+            <ul class="space-y-1">
+              <li>
+                <div class="flex items-start justify-between gap-2 rounded px-2 py-1 hover:bg-gray-800">
+                  <span class="text-sm">
+                    <span class="font-medium text-gray-200">morning workout:</span>
+                    <span class="text-gray-400"> Goes to the gym weekday mornings at 6:30 AM before work.</span>
+                  </span>
+                  <button class="shrink-0 text-xs text-gray-600">x</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="mb-4">
+            <h3 class="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500">preference</h3>
+            <ul class="space-y-1">
+              <li>
+                <div class="flex items-start justify-between gap-2 rounded px-2 py-1 hover:bg-gray-800">
+                  <span class="text-sm">
+                    <span class="font-medium text-gray-200">meeting style:</span>
+                    <span class="text-gray-400"> Prefers async communication over meetings when possible; meetings should have agendas.</span>
+                  </span>
+                  <button class="shrink-0 text-xs text-gray-600">x</button>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-start justify-between gap-2 rounded px-2 py-1 hover:bg-gray-800">
+                  <span class="text-sm">
+                    <span class="font-medium text-gray-200">coffee order:</span>
+                    <span class="text-gray-400"> Oat milk flat white, no sugar.</span>
+                  </span>
+                  <button class="shrink-0 text-xs text-gray-600">x</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="mb-4">
+            <h3 class="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500">work</h3>
+            <ul class="space-y-1">
+              <li>
+                <div class="flex items-start justify-between gap-2 rounded px-2 py-1 hover:bg-gray-800">
+                  <span class="text-sm">
+                    <span class="font-medium text-gray-200">team timezone:</span>
+                    <span class="text-gray-400"> Engineering team spans US/Central, US/Pacific, and UK time zones.</span>
+                  </span>
+                  <button class="shrink-0 text-xs text-gray-600">x</button>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-start justify-between gap-2 rounded px-2 py-1 hover:bg-gray-800">
+                  <span class="text-sm">
+                    <span class="font-medium text-gray-200">stack:</span>
+                    <span class="text-gray-400"> Uses Python/FastAPI for backend services and React/TypeScript for frontends.</span>
+                  </span>
+                  <button class="shrink-0 text-xs text-gray-600">x</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500">deadline</h3>
+            <ul class="space-y-1">
+              <li>
+                <div class="flex items-start justify-between gap-2 rounded px-2 py-1 hover:bg-gray-800">
+                  <span class="text-sm">
+                    <span class="font-medium text-gray-200">Q1 budget:</span>
+                    <span class="text-gray-400"> Q1 engineering budget approval is due by end of this week.</span>
+                  </span>
+                  <button class="shrink-0 text-xs text-gray-600">x</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>

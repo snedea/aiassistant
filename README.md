@@ -4,6 +4,10 @@ A self-hosted personal AI assistant that syncs your calendar, email, and notes, 
 
 ![Dashboard](https://img.shields.io/badge/status-active-brightgreen) ![License](https://img.shields.io/badge/license-MIT-blue) ![Python](https://img.shields.io/badge/python-3.12+-blue) ![TypeScript](https://img.shields.io/badge/typescript-strict-blue)
 
+![AI Assistant Dashboard](screenshot.png)
+
+> A static demo of the dashboard is available at [`demo.html`](demo.html) — open it in a browser, no server needed.
+
 ## What it does
 
 - **Chat with your data** — Ask questions across calendar, email, and notes using RAG (semantic search + local LLM)
